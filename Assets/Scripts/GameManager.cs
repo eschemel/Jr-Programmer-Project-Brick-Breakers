@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     public string m_cPlayerName; //Hidden until high score.
     public int m_cScore; //current game score
 
+    private bool _reset = false;
+
     //Allows access to the MainManager GameObject between scenes
     private void Awake()
     {
@@ -39,8 +41,17 @@ public class GameManager : MonoBehaviour
     public void SaveHighScore()
     {
         SaveData data = new SaveData();
-        data.m_playername = m_playername;
-        data.m_highScore = m_highScore;
+        //Reset
+        if (_reset)
+        {
+            data.m_playername = "Player";
+            data.m_highScore = 0;
+        }
+        else
+        {
+            data.m_playername = m_playername;
+            data.m_highScore = m_highScore;
+        }
 
         string json = JsonUtility.ToJson(data);
 
@@ -56,8 +67,16 @@ public class GameManager : MonoBehaviour
             string json = File.ReadAllText(path);
             SaveData data = JsonUtility.FromJson<SaveData>(json);
 
-            m_playername = data.m_playername;
-            m_highScore = data.m_highScore;
+            if (_reset)
+            {
+                m_playername = "Player";
+                m_highScore = 0;
+            }
+            else
+            {
+                m_playername = data.m_playername;
+                m_highScore = data.m_highScore;
+            }
         }
     }
 }
