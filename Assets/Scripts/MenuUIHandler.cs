@@ -11,13 +11,18 @@ using UnityEditor;
 public class MenuUIHandler : MonoBehaviour
 {
     [Header("Player Name")]
-    [SerializeField]private string _playerName = "";
-    public TMP_InputField _inputField;
+    [SerializeField]private string m_playerName = "";
+    public TMP_InputField m_inputField;
+
+    [Header("High Score")]
+    public TextMeshProUGUI highScoreText;
 
     // Start is called before the first frame update
     void Start()
     {
-        _inputField = GameObject.Find("PlayerNameInputField").GetComponent<TMP_InputField>();
+        m_inputField = GameObject.Find("PlayerNameInputField").GetComponent<TMP_InputField>();
+        GameManager.Instance.LoadHighScore();
+        highScoreText.text = "High Score : " + GameManager.Instance.m_playername + " : " + GameManager.Instance.m_highScore;
     }
 
     // Update is called once per frame
@@ -42,14 +47,9 @@ public class MenuUIHandler : MonoBehaviour
 
     public void InputPlayerName() //Save Player Name
     {
-        Debug.Log(_inputField.text);
-        _playerName = _inputField.text;
-       
-        GameManager.Instance.SaveHighScore();
-    }
+        m_playerName = m_inputField.text;
+        Debug.Log(m_playerName);
 
-    void SaveScore()
-    {
-
+        GameManager.Instance.m_cPlayerName = m_playerName;
     }
 }

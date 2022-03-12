@@ -1321,9 +1321,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02620e74317c24b48865a56e06d5cda2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playername: 
-  highScore: 0
-  cPlayerName: 
+  m_playername: 
+  m_highScore: 0
+  m_cPlayerName: 
+  m_cScore: 0
 --- !u!4 &1412723350
 Transform:
   m_ObjectHideFlags: 0
@@ -1388,7 +1389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.29352084, g: 0.47192, b: 0.6415094, a: 1}
+  m_Color: {r: 0, g: 0, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1491,7 +1492,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Enter text...
+  m_text: Enter name...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1500,8 +1501,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 2150773298
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 0.5}
+    rgba: 2788307506
+  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 0.6509804}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2067,5 +2068,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17e46fcd141c3bd4489897bfd26a1cb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerName: 
-  _inputField: {fileID: 591765628}
+  m_playerName: 
+  m_inputField: {fileID: 591765628}
+  highScoreText: {fileID: 1160531393}
