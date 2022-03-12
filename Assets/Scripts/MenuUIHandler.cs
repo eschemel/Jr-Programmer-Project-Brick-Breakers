@@ -11,13 +11,13 @@ using UnityEditor;
 public class MenuUIHandler : MonoBehaviour
 {
     [Header("Player Name")]
-    [SerializeField]private string playerName = "";
-    public GameObject inputField;
+    [SerializeField]private string _playerName = "";
+    public TMP_InputField _inputField;
 
     // Start is called before the first frame update
     void Start()
     {
-        string newPlayerName = inputField.GetComponent<TMP_InputField>().text;
+        _inputField = GameObject.Find("PlayerNameInputField").GetComponent<TMP_InputField>();
     }
 
     // Update is called once per frame
@@ -40,14 +40,15 @@ public class MenuUIHandler : MonoBehaviour
 #endif
     }
 
-    public void OnString_PlayerName(string value) //Save Player Name
+    public void InputPlayerName() //Save Player Name
     {
-        Debug.Log(value);
-        playerName = value;
+        Debug.Log(_inputField.text);
+        _playerName = _inputField.text;
+       
         GameManager.Instance.SaveHighScore();
     }
 
-    void SaveHighScore()
+    void SaveScore()
     {
 
     }
